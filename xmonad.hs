@@ -8,19 +8,31 @@ import XMonad.Layout.Grid
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.ManageDocks
-
+import XMonad.Hooks.DynamicLog
+import XMonad.Util.Run(spawnPipe)
 import Graphics.X11 (Rectangle(..))
 import Control.Arrow (second)
 import XMonad.Util.Font (fi)
 
 import XMonad.Layout.LayoutModifier
+import System.IO
 
 
+main = do
+   xmproc <- spawnPipe "xmobar"
 
-main = xmonad desktopConfig
+   xmonad $ defaultConfig
     { terminal    = "xterm"
     , modMask     = mod4Mask
+    , manageHook = manageDocks <+> manageHook defaultConfig
     , layoutHook = avoidStruts $ myLayoutHook
+    , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
+    , logHook = dynamicLogWithPP xmobarPP
+    {
+      ppOutput = hPutStrLn xmproc
+    , ppTitle = xmobarColor "green" "" . shorten 50
+    }
+    
 
     }
 
