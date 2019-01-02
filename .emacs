@@ -1,8 +1,9 @@
 (add-to-list 'custom-theme-load-path "/home/andrewdo/.emacs.d/themes/")
 (add-to-list 'load-path "/home/andrewdo/.emacs.d/addons/")
-(require 'centered-window-mode)
-(centered-window-mode t)
-
+;;(require 'centered-window-mode)
+;;(centered-window-mode t)
+(require 'perfect-margin)
+(perfect-margin-mode 1)
 (require 'package)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
