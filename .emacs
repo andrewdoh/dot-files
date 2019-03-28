@@ -1,5 +1,7 @@
-(add-to-list 'custom-theme-load-path "/home/andrewdo/.emacs.d/themes/")
-(add-to-list 'load-path "/home/andrewdo/.emacs.d/addons/")
+(menu-bar-mode -1)
+(setq sgml-quick-keys 'close)
+(add-to-list 'custom-theme-load-path "/Users/andrewdo/.emacs.d/themes/")
+(add-to-list 'load-path "/Users/andrewdo/.emacs.d/addons/")
 ;;(require 'centered-window-mode)
 ;;(centered-window-mode t)
 (require 'perfect-margin)
@@ -18,7 +20,7 @@
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa-stable" . "http://stable.melpa.org/packages/"))))
- '(package-selected-packages (quote (multiple-cursors omnisharp tide haskell-mode))))
+ '(package-selected-packages (quote (web-mode multiple-cursors tide haskell-mode))))
 (package-initialize)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -64,7 +66,7 @@
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
               (setup-tide-mode))))
 ;; enable typescript-tslint checker
-;; (Flycheck-add-mode 'typescript-tslint 'web-mode)
+;;(Flycheck-add-mode 'typescript-tslint 'web-mode)
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
