@@ -23,7 +23,7 @@
      ("melpa-stable" . "http://stable.melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (helm-projectile helm web-mode multiple-cursors tide haskell-mode))))
+    (company 0blayout helm-projectile helm web-mode multiple-cursors tide haskell-mode))))
 (package-initialize)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -130,3 +130,5 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+(company-mode 1)
